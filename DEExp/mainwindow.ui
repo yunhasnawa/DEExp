@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>571</width>
+    <height>387</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>DEExp - Data Engineering Experiments</string>
   </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>571</width>
      <height>20</height>
     </rect>
    </property>
@@ -29,7 +29,7 @@
     </property>
     <addaction name="actionRead_Data"/>
     <addaction name="actionWrite_Data"/>
-    <addaction name="actionOpen_File"/>
+    <addaction name="actionFile_Operation"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>
@@ -52,9 +52,9 @@
     <string>Write Data</string>
    </property>
   </action>
-  <action name="actionOpen_File">
+  <action name="actionFile_Operation">
    <property name="text">
-    <string>Open File</string>
+    <string>File Operation</string>
    </property>
   </action>
  </widget>

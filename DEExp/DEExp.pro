@@ -14,10 +14,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    readdatadialog.cpp
+    readdatadialog.cpp \
+    writedatadialog.cpp \
+    fileoperationdialog.cpp
 
 HEADERS  += mainwindow.h \
-    readdatadialog.h
+    readdatadialog.h \
+    writedatadialog.h \
+    fileoperationdialog.h
 
 FORMS    += mainwindow.ui \
-    readdatadialog.ui
+    readdatadialog.ui \
+    writedatadialog.ui \
+    fileoperationdialog.ui

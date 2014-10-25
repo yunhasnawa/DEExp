@@ -28,7 +28,7 @@ class Ui_MainWindow
 public:
     QAction *actionRead_Data;
     QAction *actionWrite_Data;
-    QAction *actionOpen_File;
+    QAction *actionFile_Operation;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menuMenu;
@@ -39,19 +39,19 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(400, 300);
+        MainWindow->resize(571, 387);
         actionRead_Data = new QAction(MainWindow);
         actionRead_Data->setObjectName(QStringLiteral("actionRead_Data"));
         actionWrite_Data = new QAction(MainWindow);
         actionWrite_Data->setObjectName(QStringLiteral("actionWrite_Data"));
-        actionOpen_File = new QAction(MainWindow);
-        actionOpen_File->setObjectName(QStringLiteral("actionOpen_File"));
+        actionFile_Operation = new QAction(MainWindow);
+        actionFile_Operation->setObjectName(QStringLiteral("actionFile_Operation"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 20));
+        menuBar->setGeometry(QRect(0, 0, 571, 20));
         menuMenu = new QMenu(menuBar);
         menuMenu->setObjectName(QStringLiteral("menuMenu"));
         MainWindow->setMenuBar(menuBar);
@@ -65,7 +65,7 @@ public:
         menuBar->addAction(menuMenu->menuAction());
         menuMenu->addAction(actionRead_Data);
         menuMenu->addAction(actionWrite_Data);
-        menuMenu->addAction(actionOpen_File);
+        menuMenu->addAction(actionFile_Operation);
 
         retranslateUi(MainWindow);
 
@@ -74,10 +74,10 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "DEExp - Data Engineering Experiments", 0));
         actionRead_Data->setText(QApplication::translate("MainWindow", "Read Data", 0));
         actionWrite_Data->setText(QApplication::translate("MainWindow", "Write Data", 0));
-        actionOpen_File->setText(QApplication::translate("MainWindow", "Open File", 0));
+        actionFile_Operation->setText(QApplication::translate("MainWindow", "File Operation", 0));
         menuMenu->setTitle(QApplication::translate("MainWindow", "Menu", 0));
     } // retranslateUi
 

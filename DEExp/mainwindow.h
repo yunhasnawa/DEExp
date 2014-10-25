@@ -18,6 +18,10 @@ public:
 private slots:
     void on_actionRead_Data_triggered();
 
+    void on_actionWrite_Data_triggered();
+
+    void on_actionFile_Operation_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
