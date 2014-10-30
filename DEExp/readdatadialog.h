@@ -15,8 +15,16 @@ public:
     explicit ReadDataDialog(QWidget *parent = 0);
     ~ReadDataDialog();
 
+private slots:
+    void on_pbtLookup_clicked();
+
 private:
     Ui::ReadDataDialog *ui;
+    QString fileName;
+    double dataSize;
+    int mainDataSize;
+    int powerDataSize;
+    QString fileContent;
 };
 
 #endif // READDATADIALOG_H

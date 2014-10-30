@@ -90,6 +90,19 @@ FileTime Engine::writeToFile(QString text, QString fileName)
     return ft;
 }
 
+QString Engine::lookupFile(QWidget* owner)
+{
+    QString defaultDirectory = this->defaultDirectory;
+
+    QString fileName = QFileDialog::getOpenFileName(
+                owner,
+                tr("Open a Data Engineering File"),
+                defaultDirectory,
+                tr("Data Engineering File (*.dxt)"));
+
+    return fileName;
+}
+
 QString Engine::generateFileName(QString tag)
 {
     QString dateElement = Helper::ymdhisString(QDateTime::currentDateTime());

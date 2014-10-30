@@ -28,16 +28,17 @@ class Ui_ReadDataDialog
 public:
     QDialogButtonBox *buttonBox;
     QLabel *label;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
+    QLineEdit *ldtMainSize;
+    QLineEdit *ldtPowerSize;
     QLabel *label_2;
-    QPushButton *pushButton;
-    QTextEdit *textEdit;
-    QPushButton *pushButton_2;
+    QPushButton *pbtLookup;
+    QTextEdit *tedContent;
+    QPushButton *pbtRead;
     QLabel *label_3;
-    QLineEdit *lineEdit_3;
-    QLineEdit *lineEdit_4;
+    QLineEdit *ldtFileName;
+    QLineEdit *ldtTotalTime;
     QLabel *label_4;
+    QLabel *label_5;
 
     void setupUi(QDialog *ReadDataDialog)
     {
@@ -52,36 +53,39 @@ public:
         label = new QLabel(ReadDataDialog);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(10, 280, 121, 16));
-        lineEdit = new QLineEdit(ReadDataDialog);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(160, 280, 113, 23));
-        lineEdit_2 = new QLineEdit(ReadDataDialog);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(320, 280, 113, 23));
+        ldtMainSize = new QLineEdit(ReadDataDialog);
+        ldtMainSize->setObjectName(QStringLiteral("ldtMainSize"));
+        ldtMainSize->setGeometry(QRect(160, 280, 113, 23));
+        ldtPowerSize = new QLineEdit(ReadDataDialog);
+        ldtPowerSize->setObjectName(QStringLiteral("ldtPowerSize"));
+        ldtPowerSize->setGeometry(QRect(320, 280, 113, 23));
         label_2 = new QLabel(ReadDataDialog);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(290, 280, 21, 16));
-        pushButton = new QPushButton(ReadDataDialog);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(360, 10, 131, 23));
-        textEdit = new QTextEdit(ReadDataDialog);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(10, 80, 481, 181));
-        pushButton_2 = new QPushButton(ReadDataDialog);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(160, 50, 181, 23));
+        pbtLookup = new QPushButton(ReadDataDialog);
+        pbtLookup->setObjectName(QStringLiteral("pbtLookup"));
+        pbtLookup->setGeometry(QRect(360, 10, 131, 23));
+        tedContent = new QTextEdit(ReadDataDialog);
+        tedContent->setObjectName(QStringLiteral("tedContent"));
+        tedContent->setGeometry(QRect(10, 80, 481, 181));
+        pbtRead = new QPushButton(ReadDataDialog);
+        pbtRead->setObjectName(QStringLiteral("pbtRead"));
+        pbtRead->setGeometry(QRect(160, 50, 181, 23));
         label_3 = new QLabel(ReadDataDialog);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(8, 10, 121, 16));
-        lineEdit_3 = new QLineEdit(ReadDataDialog);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(100, 10, 251, 23));
-        lineEdit_4 = new QLineEdit(ReadDataDialog);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(102, 310, 391, 23));
+        ldtFileName = new QLineEdit(ReadDataDialog);
+        ldtFileName->setObjectName(QStringLiteral("ldtFileName"));
+        ldtFileName->setGeometry(QRect(100, 10, 251, 23));
+        ldtTotalTime = new QLineEdit(ReadDataDialog);
+        ldtTotalTime->setObjectName(QStringLiteral("ldtTotalTime"));
+        ldtTotalTime->setGeometry(QRect(102, 310, 221, 23));
         label_4 = new QLabel(ReadDataDialog);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(10, 310, 81, 16));
+        label_5 = new QLabel(ReadDataDialog);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(330, 310, 91, 16));
 
         retranslateUi(ReadDataDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), ReadDataDialog, SLOT(accept()));
@@ -95,10 +99,11 @@ public:
         ReadDataDialog->setWindowTitle(QApplication::translate("ReadDataDialog", "Dialog", 0));
         label->setText(QApplication::translate("ReadDataDialog", "Data Size (Bytes)", 0));
         label_2->setText(QApplication::translate("ReadDataDialog", "^", 0));
-        pushButton->setText(QApplication::translate("ReadDataDialog", "Lookup..", 0));
-        pushButton_2->setText(QApplication::translate("ReadDataDialog", "Read!", 0));
+        pbtLookup->setText(QApplication::translate("ReadDataDialog", "Lookup..", 0));
+        pbtRead->setText(QApplication::translate("ReadDataDialog", "Read!", 0));
         label_3->setText(QApplication::translate("ReadDataDialog", "File name", 0));
         label_4->setText(QApplication::translate("ReadDataDialog", "Total Time", 0));
+        label_5->setText(QApplication::translate("ReadDataDialog", "Nano seconds", 0));
     } // retranslateUi
 
 };

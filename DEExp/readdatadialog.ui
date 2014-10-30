@@ -42,7 +42,7 @@
     <string>Data Size (Bytes)</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="ldtMainSize">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -52,7 +52,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="ldtPowerSize">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -75,7 +75,7 @@
     <string>^</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pbtLookup">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -88,7 +88,7 @@
     <string>Lookup..</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="tedContent">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -98,7 +98,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pbtRead">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -124,7 +124,7 @@
     <string>File name</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="ldtFileName">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -134,12 +134,12 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="ldtTotalTime">
    <property name="geometry">
     <rect>
      <x>102</x>
      <y>310</y>
-     <width>391</width>
+     <width>221</width>
      <height>23</height>
     </rect>
    </property>
@@ -155,6 +155,19 @@
    </property>
    <property name="text">
     <string>Total Time</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>310</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nano seconds</string>
    </property>
   </widget>
  </widget>

@@ -5,6 +5,7 @@
 #include "helper.h"
 #include "filetime.h"
 #include "qelapsedtimer.h"
+#include "qfiledialog.h"
 
 class Engine : public QObject
 {
@@ -12,8 +13,10 @@ class Engine : public QObject
 public:
     explicit Engine(QObject *parent = 0);
     static Engine* instance();
+    QString defaultDirectory;
     QString generateRandomText(double size);
     FileTime writeToFile(QString text, QString fileName);
+    QString lookupFile(QWidget* owner);
     QString generateFileName(QString tag);
     QString randomSeed;
 
@@ -22,7 +25,6 @@ private:
     void initProperties();
     void checkDefaultDirectory();
     static Engine* _instance;
-    QString defaultDirectory;
     QString fileNamePrefix;
     QString fileExtension;
 
