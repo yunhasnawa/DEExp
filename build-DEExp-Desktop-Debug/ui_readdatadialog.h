@@ -16,6 +16,10 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QTextEdit>
 
 QT_BEGIN_NAMESPACE
 
@@ -23,17 +27,61 @@ class Ui_ReadDataDialog
 {
 public:
     QDialogButtonBox *buttonBox;
+    QLabel *label;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_2;
+    QLabel *label_2;
+    QPushButton *pushButton;
+    QTextEdit *textEdit;
+    QPushButton *pushButton_2;
+    QLabel *label_3;
+    QLineEdit *lineEdit_3;
+    QLineEdit *lineEdit_4;
+    QLabel *label_4;
 
     void setupUi(QDialog *ReadDataDialog)
     {
         if (ReadDataDialog->objectName().isEmpty())
             ReadDataDialog->setObjectName(QStringLiteral("ReadDataDialog"));
-        ReadDataDialog->resize(400, 300);
+        ReadDataDialog->resize(500, 380);
         buttonBox = new QDialogButtonBox(ReadDataDialog);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(30, 240, 341, 32));
+        buttonBox->setGeometry(QRect(10, 340, 481, 32));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        label = new QLabel(ReadDataDialog);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(10, 280, 121, 16));
+        lineEdit = new QLineEdit(ReadDataDialog);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(160, 280, 113, 23));
+        lineEdit_2 = new QLineEdit(ReadDataDialog);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        lineEdit_2->setGeometry(QRect(320, 280, 113, 23));
+        label_2 = new QLabel(ReadDataDialog);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(290, 280, 21, 16));
+        pushButton = new QPushButton(ReadDataDialog);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(360, 10, 131, 23));
+        textEdit = new QTextEdit(ReadDataDialog);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+        textEdit->setGeometry(QRect(10, 80, 481, 181));
+        pushButton_2 = new QPushButton(ReadDataDialog);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(160, 50, 181, 23));
+        label_3 = new QLabel(ReadDataDialog);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(8, 10, 121, 16));
+        lineEdit_3 = new QLineEdit(ReadDataDialog);
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+        lineEdit_3->setGeometry(QRect(100, 10, 251, 23));
+        lineEdit_4 = new QLineEdit(ReadDataDialog);
+        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
+        lineEdit_4->setGeometry(QRect(102, 310, 391, 23));
+        label_4 = new QLabel(ReadDataDialog);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(10, 310, 81, 16));
 
         retranslateUi(ReadDataDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), ReadDataDialog, SLOT(accept()));
@@ -45,6 +93,12 @@ public:
     void retranslateUi(QDialog *ReadDataDialog)
     {
         ReadDataDialog->setWindowTitle(QApplication::translate("ReadDataDialog", "Dialog", 0));
+        label->setText(QApplication::translate("ReadDataDialog", "Data Size (Bytes)", 0));
+        label_2->setText(QApplication::translate("ReadDataDialog", "^", 0));
+        pushButton->setText(QApplication::translate("ReadDataDialog", "Lookup..", 0));
+        pushButton_2->setText(QApplication::translate("ReadDataDialog", "Read!", 0));
+        label_3->setText(QApplication::translate("ReadDataDialog", "File name", 0));
+        label_4->setText(QApplication::translate("ReadDataDialog", "Total Time", 0));
     } // retranslateUi
 
 };
