@@ -40,3 +40,18 @@ void MainWindow::on_actionFile_Operation_triggered()
     dlgFileOperation->setWindowTitle("File Operation");
     dlgFileOperation->show();
 }
+
+void MainWindow::on_pbWriteData_clicked()
+{
+    this->on_actionWrite_Data_triggered();
+}
+
+void MainWindow::on_pbReadData_clicked()
+{
+    this->on_actionRead_Data_triggered();
+}
+
+void MainWindow::on_pbFileOps_clicked()
+{
+    this->on_actionFile_Operation_triggered();
+}

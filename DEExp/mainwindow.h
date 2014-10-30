@@ -22,6 +22,12 @@ private slots:
 
     void on_actionFile_Operation_triggered();
 
+    void on_pbWriteData_clicked();
+
+    void on_pbReadData_clicked();
+
+    void on_pbFileOps_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
