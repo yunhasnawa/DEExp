@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>350</height>
+    <height>390</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>310</y>
+     <y>350</y>
      <width>481</width>
      <height>32</height>
     </rect>
@@ -29,17 +29,17 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="ldtFileName">
    <property name="geometry">
     <rect>
-     <x>132</x>
+     <x>92</x>
      <y>10</y>
-     <width>221</width>
+     <width>261</width>
      <height>23</height>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pbtLookup">
    <property name="geometry">
     <rect>
      <x>362</x>
@@ -62,14 +62,14 @@
     </rect>
    </property>
    <property name="text">
-    <string>New/Existing File</string>
+    <string>Existing File</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pbtOpen">
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>50</y>
+     <y>90</y>
      <width>221</width>
      <height>23</height>
     </rect>
@@ -78,11 +78,11 @@
     <string>Open!</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="tedContent">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>120</y>
      <width>481</width>
      <height>181</height>
     </rect>
@@ -92,7 +92,7 @@
    <property name="geometry">
     <rect>
      <x>8</x>
-     <y>280</y>
+     <y>320</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -101,14 +101,63 @@
     <string>Total Time</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="ldtTotalTime">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>280</y>
-     <width>391</width>
+     <y>320</y>
+     <width>221</width>
      <height>23</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pbtGenerate">
+   <property name="geometry">
+    <rect>
+     <x>362</x>
+     <y>50</y>
+     <width>131</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Generate..</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ldtFileNameNew">
+   <property name="geometry">
+    <rect>
+     <x>92</x>
+     <y>50</y>
+     <width>261</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>New File</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>320</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nano seconds</string>
    </property>
   </widget>
  </widget>

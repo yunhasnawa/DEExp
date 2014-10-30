@@ -1,5 +1,6 @@
 #include "helper.h"
 #include "math.h"
+#include "qfile.h"
 
 Helper::Helper()
 {
@@ -38,4 +39,18 @@ QString Helper::ymdhisString(QDateTime dt)
 int Helper::baselog(double base, double x)
 {
     return (int) (log(x)/log(base));
+}
+
+bool Helper::fileExists(QString fileName)
+{
+    QFile file(fileName);
+
+    if(file.exists())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

@@ -27,45 +27,61 @@ class Ui_FileOperationDialog
 {
 public:
     QDialogButtonBox *buttonBox;
-    QLineEdit *lineEdit_3;
-    QPushButton *pushButton;
+    QLineEdit *ldtFileName;
+    QPushButton *pbtLookup;
     QLabel *label_3;
-    QPushButton *pushButton_2;
-    QTextEdit *textEdit;
+    QPushButton *pbtOpen;
+    QTextEdit *tedContent;
     QLabel *label_4;
-    QLineEdit *lineEdit_4;
+    QLineEdit *ldtTotalTime;
+    QPushButton *pbtGenerate;
+    QLineEdit *ldtFileNameNew;
+    QLabel *label_5;
+    QLabel *label_6;
 
     void setupUi(QDialog *FileOperationDialog)
     {
         if (FileOperationDialog->objectName().isEmpty())
             FileOperationDialog->setObjectName(QStringLiteral("FileOperationDialog"));
-        FileOperationDialog->resize(500, 350);
+        FileOperationDialog->resize(500, 390);
         buttonBox = new QDialogButtonBox(FileOperationDialog);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(10, 310, 481, 32));
+        buttonBox->setGeometry(QRect(10, 350, 481, 32));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
-        lineEdit_3 = new QLineEdit(FileOperationDialog);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(132, 10, 221, 23));
-        pushButton = new QPushButton(FileOperationDialog);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(362, 10, 131, 23));
+        ldtFileName = new QLineEdit(FileOperationDialog);
+        ldtFileName->setObjectName(QStringLiteral("ldtFileName"));
+        ldtFileName->setGeometry(QRect(92, 10, 261, 23));
+        pbtLookup = new QPushButton(FileOperationDialog);
+        pbtLookup->setObjectName(QStringLiteral("pbtLookup"));
+        pbtLookup->setGeometry(QRect(362, 10, 131, 23));
         label_3 = new QLabel(FileOperationDialog);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(10, 10, 111, 16));
-        pushButton_2 = new QPushButton(FileOperationDialog);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(130, 50, 221, 23));
-        textEdit = new QTextEdit(FileOperationDialog);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(10, 80, 481, 181));
+        pbtOpen = new QPushButton(FileOperationDialog);
+        pbtOpen->setObjectName(QStringLiteral("pbtOpen"));
+        pbtOpen->setGeometry(QRect(130, 90, 221, 23));
+        tedContent = new QTextEdit(FileOperationDialog);
+        tedContent->setObjectName(QStringLiteral("tedContent"));
+        tedContent->setGeometry(QRect(10, 120, 481, 181));
         label_4 = new QLabel(FileOperationDialog);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(8, 280, 81, 16));
-        lineEdit_4 = new QLineEdit(FileOperationDialog);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(100, 280, 391, 23));
+        label_4->setGeometry(QRect(8, 320, 81, 16));
+        ldtTotalTime = new QLineEdit(FileOperationDialog);
+        ldtTotalTime->setObjectName(QStringLiteral("ldtTotalTime"));
+        ldtTotalTime->setGeometry(QRect(100, 320, 221, 23));
+        pbtGenerate = new QPushButton(FileOperationDialog);
+        pbtGenerate->setObjectName(QStringLiteral("pbtGenerate"));
+        pbtGenerate->setGeometry(QRect(362, 50, 131, 23));
+        ldtFileNameNew = new QLineEdit(FileOperationDialog);
+        ldtFileNameNew->setObjectName(QStringLiteral("ldtFileNameNew"));
+        ldtFileNameNew->setGeometry(QRect(92, 50, 261, 23));
+        label_5 = new QLabel(FileOperationDialog);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(10, 50, 111, 16));
+        label_6 = new QLabel(FileOperationDialog);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(330, 320, 91, 16));
 
         retranslateUi(FileOperationDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), FileOperationDialog, SLOT(accept()));
@@ -77,10 +93,13 @@ public:
     void retranslateUi(QDialog *FileOperationDialog)
     {
         FileOperationDialog->setWindowTitle(QApplication::translate("FileOperationDialog", "Dialog", 0));
-        pushButton->setText(QApplication::translate("FileOperationDialog", "Lookup..", 0));
-        label_3->setText(QApplication::translate("FileOperationDialog", "New/Existing File", 0));
-        pushButton_2->setText(QApplication::translate("FileOperationDialog", "Open!", 0));
+        pbtLookup->setText(QApplication::translate("FileOperationDialog", "Lookup..", 0));
+        label_3->setText(QApplication::translate("FileOperationDialog", "Existing File", 0));
+        pbtOpen->setText(QApplication::translate("FileOperationDialog", "Open!", 0));
         label_4->setText(QApplication::translate("FileOperationDialog", "Total Time", 0));
+        pbtGenerate->setText(QApplication::translate("FileOperationDialog", "Generate..", 0));
+        label_5->setText(QApplication::translate("FileOperationDialog", "New File", 0));
+        label_6->setText(QApplication::translate("FileOperationDialog", "Nano seconds", 0));
     } // retranslateUi
 
 };

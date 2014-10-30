@@ -12,6 +12,7 @@ public:
     static int generateRandomBetween(int from, int to);
     static QString ymdhisString(QDateTime dt);
     static int baselog(double base, double x);
+    static bool fileExists(QString fileName);
 };
 
 #endif // HELPER_H

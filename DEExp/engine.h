@@ -3,11 +3,11 @@
 
 #include <QObject>
 #include "qmath.h"
-#include "helper.h"
-#include "filetime.h"
 #include "qelapsedtimer.h"
 #include "qfiledialog.h"
 #include "qtextstream.h"
+#include "filetime.h"
+#include "helper.h"
 
 class Engine : public QObject
 {
