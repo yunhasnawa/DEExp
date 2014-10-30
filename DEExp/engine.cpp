@@ -80,12 +80,12 @@ FileTime Engine::writeToFile(QString text, QString fileName)
     file.close();
 
     // Stop the timer
-    qint64 milisec = timer.nsecsElapsed();
+    qint64 nanosecs = timer.nsecsElapsed();
 
     FileTime ft;
 
     ft.fileName = fileName;
-    ft.writeTime = milisec;
+    ft.writeTime = nanosecs;
 
     return ft;
 }
@@ -110,4 +110,29 @@ QString Engine::generateFileName(QString tag)
     QString fileName = this->fileNamePrefix + dateElement + "_" + tag + this->fileExtension;
 
     return fileName;
+}
+
+FileTime Engine::readFile(QString fileName)
+{
+    FileTime ft;
+
+    QFile file(fileName);
+
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        // Start counting the time
+        QElapsedTimer timer;
+        timer.start();
+
+        QTextStream textStream(&file);
+
+        ft.fileContent = textStream.readAll();
+
+        // Stop the timer
+        qint64 nanosecs = timer.nsecsElapsed();
+
+        ft.readTime = nanosecs;
+    }
+
+    return ft;
 }

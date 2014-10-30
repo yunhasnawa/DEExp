@@ -11,6 +11,7 @@ public:
     static QString findStringAtIndex(QString haystack, int needle);
     static int generateRandomBetween(int from, int to);
     static QString ymdhisString(QDateTime dt);
+    static int baselog(double base, double x);
 };
 
 #endif // HELPER_H

@@ -2,10 +2,12 @@
 #define ENGINE_H
 
 #include <QObject>
+#include "qmath.h"
 #include "helper.h"
 #include "filetime.h"
 #include "qelapsedtimer.h"
 #include "qfiledialog.h"
+#include "qtextstream.h"
 
 class Engine : public QObject
 {
@@ -18,6 +20,7 @@ public:
     FileTime writeToFile(QString text, QString fileName);
     QString lookupFile(QWidget* owner);
     QString generateFileName(QString tag);
+    FileTime readFile(QString fileName);
     QString randomSeed;
 
 private:

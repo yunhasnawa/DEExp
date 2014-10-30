@@ -1,9 +1,6 @@
 #include "writedatadialog.h"
 #include "ui_writedatadialog.h"
 #include "QMessageBox"
-#include "qmath.h"
-#include "qdir.h"
-#include "qfile.h"
 #include "engine.h"
 
 WriteDataDialog::WriteDataDialog(QWidget *parent) :
@@ -56,7 +53,9 @@ void WriteDataDialog::retrieveGeneratedContent()
 
 void WriteDataDialog::on_pbtWriteToDisk_clicked()
 {
-    QString defaultFileName = Engine::instance()->generateFileName("tes");
+    QString tag = QString::number(this->actualBytesSize);
+
+    QString defaultFileName = Engine::instance()->generateFileName(tag);
 
     FileTime ft = Engine::instance()->writeToFile(this->generatedContent, defaultFileName);
 

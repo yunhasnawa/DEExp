@@ -18,6 +18,8 @@ public:
 private slots:
     void on_pbtLookup_clicked();
 
+    void on_pbtRead_clicked();
+
 private:
     Ui::ReadDataDialog *ui;
     QString fileName;
@@ -25,6 +27,8 @@ private:
     int mainDataSize;
     int powerDataSize;
     QString fileContent;
+    double totalTime;
+    void fillDataToUI();
 };
 
 #endif // READDATADIALOG_H

@@ -1,4 +1,5 @@
 #include "helper.h"
+#include "math.h"
 
 Helper::Helper()
 {
@@ -32,4 +33,9 @@ QString Helper::ymdhisString(QDateTime dt)
     QString ymdhis = y + m + d + h + i + s;
 
     return ymdhis;
+}
+
+int Helper::baselog(double base, double x)
+{
+    return (int) (log(x)/log(base));
 }
