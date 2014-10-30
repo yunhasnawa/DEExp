@@ -20,11 +20,6 @@ int Helper::generateRandomBetween(int from, int to)
     return (qrand() % ((to + 1) - from) + from);
 }
 
-void Helper::writeToFile(QString text, QString fileName)
-{
-
-}
-
 QString Helper::ymdhisString(QDateTime dt)
 {
     QString y = QString::number(dt.date().year());

@@ -34,6 +34,24 @@ void Engine::performInitialProcess()
     this->checkDefaultDirectory();
 }
 
+QString Engine::generateRandomText(double size)
+{
+    int randomSeedCount = this->randomSeed.count();
+
+    QString text = "";
+
+    for(int i = 0; i < size; i++)
+    {
+        int randomIndex = Helper::generateRandomBetween(0, randomSeedCount-1);
+
+        QString element = Helper::findStringAtIndex(this->randomSeed, randomIndex);
+
+        text.append(element);
+    }
+
+    return text;
+}
+
 void Engine::checkDefaultDirectory()
 {
     QDir dir;
@@ -50,15 +68,24 @@ FileTime Engine::writeToFile(QString text, QString fileName)
 
     QFile file(fileName);
 
+    // Start counting the time
+    QElapsedTimer timer;
+    timer.start();
+
+    // Writes file
     file.open(QIODevice::ReadWrite | QIODevice::Text);
 
     file.write(text.toStdString().c_str());
 
     file.close();
 
+    // Stop the timer
+    qint64 milisec = timer.nsecsElapsed();
+
     FileTime ft;
 
     ft.fileName = fileName;
+    ft.writeTime = milisec;
 
     return ft;
 }

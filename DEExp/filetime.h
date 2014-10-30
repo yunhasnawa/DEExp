@@ -11,6 +11,7 @@ public:
     double writeTime;
     QString fileContent;
     double readTime;
+    QString writeTimeString();
 };
 
 #endif // FILETIME_H

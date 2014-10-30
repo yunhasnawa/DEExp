@@ -37,7 +37,8 @@ public:
     QTextEdit *tedContent;
     QLabel *label_3;
     QLineEdit *ldtByteMainSize;
-    QLineEdit *ldtWriteSpeed;
+    QLabel *label_5;
+    QLineEdit *ldtTotalTime;
 
     void setupUi(QDialog *WriteDataDialog)
     {
@@ -79,9 +80,12 @@ public:
         ldtByteMainSize = new QLineEdit(WriteDataDialog);
         ldtByteMainSize->setObjectName(QStringLiteral("ldtByteMainSize"));
         ldtByteMainSize->setGeometry(QRect(158, 10, 113, 23));
-        ldtWriteSpeed = new QLineEdit(WriteDataDialog);
-        ldtWriteSpeed->setObjectName(QStringLiteral("ldtWriteSpeed"));
-        ldtWriteSpeed->setGeometry(QRect(100, 340, 391, 23));
+        label_5 = new QLabel(WriteDataDialog);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(330, 340, 91, 16));
+        ldtTotalTime = new QLineEdit(WriteDataDialog);
+        ldtTotalTime->setObjectName(QStringLiteral("ldtTotalTime"));
+        ldtTotalTime->setGeometry(QRect(100, 340, 221, 23));
 
         retranslateUi(WriteDataDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), WriteDataDialog, SLOT(accept()));
@@ -97,10 +101,11 @@ public:
         ldtBytePowerSize->setText(QApplication::translate("WriteDataDialog", "8", 0));
         pbtWriteToDisk->setText(QApplication::translate("WriteDataDialog", "Write to Disk", 0));
         label_2->setText(QApplication::translate("WriteDataDialog", "^", 0));
-        label_4->setText(QApplication::translate("WriteDataDialog", "Write Speed", 0));
+        label_4->setText(QApplication::translate("WriteDataDialog", "Total Time", 0));
         pbtGenerate->setText(QApplication::translate("WriteDataDialog", "Generate!", 0));
         label_3->setText(QApplication::translate("WriteDataDialog", "File name", 0));
         ldtByteMainSize->setText(QApplication::translate("WriteDataDialog", "2", 0));
+        label_5->setText(QApplication::translate("WriteDataDialog", "Nano seconds", 0));
     } // retranslateUi
 
 };

@@ -4,6 +4,7 @@
 #include <QObject>
 #include "helper.h"
 #include "filetime.h"
+#include "qelapsedtimer.h"
 
 class Engine : public QObject
 {
@@ -11,6 +12,7 @@ class Engine : public QObject
 public:
     explicit Engine(QObject *parent = 0);
     static Engine* instance();
+    QString generateRandomText(double size);
     FileTime writeToFile(QString text, QString fileName);
     QString generateFileName(QString tag);
     QString randomSeed;

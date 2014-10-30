@@ -10,7 +10,6 @@ public:
     Helper();
     static QString findStringAtIndex(QString haystack, int needle);
     static int generateRandomBetween(int from, int to);
-    static void writeToFile(QString text, QString fileName);
     static QString ymdhisString(QDateTime dt);
 };
 

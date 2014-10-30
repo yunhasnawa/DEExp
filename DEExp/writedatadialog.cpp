@@ -39,10 +39,6 @@ void WriteDataDialog::retrieveDataFromUI()
 
     this->retrieveActualBytesSize();
     this->retrieveGeneratedContent();
-
-    // TESTING AREA
-
-    //this->ui->tedContent->setText(Engine::instance()->generateFileName("tes"));
 }
 
 void WriteDataDialog::retrieveActualBytesSize()
@@ -55,20 +51,7 @@ void WriteDataDialog::retrieveActualBytesSize()
 
 void WriteDataDialog::retrieveGeneratedContent()
 {
-    QString randomSeed = Engine::instance()->randomSeed;
-
-    int randomSeedCount = randomSeed.count();
-
-    this->generatedContent = QString("");
-
-    for(int i = 0; i < this->actualBytesSize; i++)
-    {
-        int randomIndex = Helper::generateRandomBetween(0, randomSeedCount-1);
-
-        QString element = Helper::findStringAtIndex(randomSeed, randomIndex);
-
-        this->generatedContent.append(element);
-    }
+    this->generatedContent = Engine::instance()->generateRandomText(this->actualBytesSize);
 }
 
 void WriteDataDialog::on_pbtWriteToDisk_clicked()
@@ -78,4 +61,5 @@ void WriteDataDialog::on_pbtWriteToDisk_clicked()
     FileTime ft = Engine::instance()->writeToFile(this->generatedContent, defaultFileName);
 
     this->ui->ldtFileName->setText(ft.fileName);
+    this->ui->ldtTotalTime->setText(ft.writeTimeString());
 }
