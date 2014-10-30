@@ -16,12 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     readdatadialog.cpp \
     writedatadialog.cpp \
-    fileoperationdialog.cpp
+    fileoperationdialog.cpp \
+    helper.cpp \
+    engine.cpp
 
 HEADERS  += mainwindow.h \
     readdatadialog.h \
     writedatadialog.h \
-    fileoperationdialog.h
+    fileoperationdialog.h \
+    helper.h \
+    engine.h
 
 FORMS    += mainwindow.ui \
     readdatadialog.ui \

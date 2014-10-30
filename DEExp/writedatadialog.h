@@ -15,8 +15,23 @@ public:
     explicit WriteDataDialog(QWidget *parent = 0);
     ~WriteDataDialog();
 
+private slots:
+    void on_pbtGenerate_clicked();
+    void initializeProperties();
+    void retrieveDataFromUI();
+    void retrieveActualBytesSize();
+    void retrieveGeneratedContent();
+
+    void on_pbtWriteToDisk_clicked();
+
 private:
     Ui::WriteDataDialog *ui;
+    //QString randomSeed;
+    QString mainSizeString;
+    QString powerSizeString;
+    QString generatedContent;
+    int totalTime;
+    double actualBytesSize;
 };
 
 #endif // WRITEDATADIALOG_H

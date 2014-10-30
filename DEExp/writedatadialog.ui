@@ -42,7 +42,7 @@
     <string>Data Size (Bytes)</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="ldtBytePowerSize">
    <property name="geometry">
     <rect>
      <x>318</x>
@@ -51,8 +51,11 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="text">
+    <string>8</string>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="ldtFileName">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -62,7 +65,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pbtWriteToDisk">
    <property name="geometry">
     <rect>
      <x>158</x>
@@ -101,7 +104,7 @@
     <string>Write Speed</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pbtGenerate">
    <property name="geometry">
     <rect>
      <x>158</x>
@@ -114,7 +117,7 @@
     <string>Generate!</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="tedContent">
    <property name="geometry">
     <rect>
      <x>8</x>
@@ -137,7 +140,7 @@
     <string>File name</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="ldtByteMainSize">
    <property name="geometry">
     <rect>
      <x>158</x>
@@ -146,8 +149,11 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="text">
+    <string>2</string>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="ldtWriteSpeed">
    <property name="geometry">
     <rect>
      <x>100</x>
