@@ -75,7 +75,7 @@ void WriteDataDialog::on_pbtWriteToDisk_clicked()
 {
     QString defaultFileName = Engine::instance()->generateFileName("tes");
 
-    Engine::instance()->writeToFile(this->generatedContent, defaultFileName);
+    FileTime ft = Engine::instance()->writeToFile(this->generatedContent, defaultFileName);
 
-    this->ui->ldtFileName->setText(defaultFileName);
+    this->ui->ldtFileName->setText(ft.fileName);
 }

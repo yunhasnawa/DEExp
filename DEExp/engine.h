@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "helper.h"
+#include "filetime.h"
 
 class Engine : public QObject
 {
@@ -10,11 +11,14 @@ class Engine : public QObject
 public:
     explicit Engine(QObject *parent = 0);
     static Engine* instance();
-    void writeToFile(QString text, QString fileName);
+    FileTime writeToFile(QString text, QString fileName);
     QString generateFileName(QString tag);
     QString randomSeed;
 
 private:
+    void performInitialProcess();
+    void initProperties();
+    void checkDefaultDirectory();
     static Engine* _instance;
     QString defaultDirectory;
     QString fileNamePrefix;

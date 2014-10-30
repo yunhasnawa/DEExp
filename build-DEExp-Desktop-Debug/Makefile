@@ -51,11 +51,13 @@ SOURCES       = ../DEExp/main.cpp \
 		../DEExp/writedatadialog.cpp \
 		../DEExp/fileoperationdialog.cpp \
 		../DEExp/helper.cpp \
-		../DEExp/engine.cpp moc_mainwindow.cpp \
+		../DEExp/engine.cpp \
+		../DEExp/filetime.cpp moc_mainwindow.cpp \
 		moc_readdatadialog.cpp \
 		moc_writedatadialog.cpp \
 		moc_fileoperationdialog.cpp \
-		moc_engine.cpp
+		moc_engine.cpp \
+		moc_filetime.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		readdatadialog.o \
@@ -63,11 +65,13 @@ OBJECTS       = main.o \
 		fileoperationdialog.o \
 		helper.o \
 		engine.o \
+		filetime.o \
 		moc_mainwindow.o \
 		moc_readdatadialog.o \
 		moc_writedatadialog.o \
 		moc_fileoperationdialog.o \
-		moc_engine.o
+		moc_engine.o \
+		moc_filetime.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -299,7 +303,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/DEExp1.0.0 || mkdir -p .tmp/DEExp1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/DEExp1.0.0/ && $(COPY_FILE) --parents ../DEExp/mainwindow.h ../DEExp/readdatadialog.h ../DEExp/writedatadialog.h ../DEExp/fileoperationdialog.h ../DEExp/helper.h ../DEExp/engine.h .tmp/DEExp1.0.0/ && $(COPY_FILE) --parents ../DEExp/main.cpp ../DEExp/mainwindow.cpp ../DEExp/readdatadialog.cpp ../DEExp/writedatadialog.cpp ../DEExp/fileoperationdialog.cpp ../DEExp/helper.cpp ../DEExp/engine.cpp .tmp/DEExp1.0.0/ && $(COPY_FILE) --parents ../DEExp/mainwindow.ui ../DEExp/readdatadialog.ui ../DEExp/writedatadialog.ui ../DEExp/fileoperationdialog.ui .tmp/DEExp1.0.0/ && (cd `dirname .tmp/DEExp1.0.0` && $(TAR) DEExp1.0.0.tar DEExp1.0.0 && $(COMPRESS) DEExp1.0.0.tar) && $(MOVE) `dirname .tmp/DEExp1.0.0`/DEExp1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/DEExp1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/DEExp1.0.0/ && $(COPY_FILE) --parents ../DEExp/mainwindow.h ../DEExp/readdatadialog.h ../DEExp/writedatadialog.h ../DEExp/fileoperationdialog.h ../DEExp/helper.h ../DEExp/engine.h ../DEExp/filetime.h .tmp/DEExp1.0.0/ && $(COPY_FILE) --parents ../DEExp/main.cpp ../DEExp/mainwindow.cpp ../DEExp/readdatadialog.cpp ../DEExp/writedatadialog.cpp ../DEExp/fileoperationdialog.cpp ../DEExp/helper.cpp ../DEExp/engine.cpp ../DEExp/filetime.cpp .tmp/DEExp1.0.0/ && $(COPY_FILE) --parents ../DEExp/mainwindow.ui ../DEExp/readdatadialog.ui ../DEExp/writedatadialog.ui ../DEExp/fileoperationdialog.ui .tmp/DEExp1.0.0/ && (cd `dirname .tmp/DEExp1.0.0` && $(TAR) DEExp1.0.0.tar DEExp1.0.0 && $(COMPRESS) DEExp1.0.0.tar) && $(MOVE) `dirname .tmp/DEExp1.0.0`/DEExp1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/DEExp1.0.0
 
 
 clean:compiler_clean 
@@ -322,9 +326,9 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_readdatadialog.cpp moc_writedatadialog.cpp moc_fileoperationdialog.cpp moc_engine.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_readdatadialog.cpp moc_writedatadialog.cpp moc_fileoperationdialog.cpp moc_engine.cpp moc_filetime.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_readdatadialog.cpp moc_writedatadialog.cpp moc_fileoperationdialog.cpp moc_engine.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_readdatadialog.cpp moc_writedatadialog.cpp moc_fileoperationdialog.cpp moc_engine.cpp moc_filetime.cpp
 moc_mainwindow.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qmainwindow.h \
 		/usr/include/qt5/QtWidgets/qwidget.h \
@@ -832,8 +836,76 @@ moc_engine.cpp: /usr/include/qt5/QtCore/QObject \
 		/usr/include/qt5/QtCore/qcontainerfwd.h \
 		/usr/include/qt5/QtCore/qisenum.h \
 		/usr/include/qt5/QtCore/qobject_impl.h \
+		../DEExp/helper.h \
+		/usr/include/qt5/QtCore/qdatetime.h \
+		/usr/include/qt5/QtCore/qsharedpointer.h \
+		/usr/include/qt5/QtCore/qshareddata.h \
+		/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/include/qt5/QtCore/qhash.h \
+		/usr/include/qt5/QtCore/qpair.h \
+		../DEExp/filetime.h \
 		../DEExp/engine.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../DEExp/engine.h -o moc_engine.cpp
+
+moc_filetime.cpp: /usr/include/qt5/QtCore/QObject \
+		/usr/include/qt5/QtCore/qobject.h \
+		/usr/include/qt5/QtCore/qobjectdefs.h \
+		/usr/include/qt5/QtCore/qnamespace.h \
+		/usr/include/qt5/QtCore/qglobal.h \
+		/usr/include/qt5/QtCore/qconfig.h \
+		/usr/include/qt5/QtCore/qfeatures.h \
+		/usr/include/qt5/QtCore/qsystemdetection.h \
+		/usr/include/qt5/QtCore/qprocessordetection.h \
+		/usr/include/qt5/QtCore/qcompilerdetection.h \
+		/usr/include/qt5/QtCore/qglobalstatic.h \
+		/usr/include/qt5/QtCore/qatomic.h \
+		/usr/include/qt5/QtCore/qbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		/usr/include/qt5/QtCore/qgenericatomic.h \
+		/usr/include/qt5/QtCore/qatomic_msvc.h \
+		/usr/include/qt5/QtCore/qatomic_integrity.h \
+		/usr/include/qt5/QtCore/qoldbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_vxworks.h \
+		/usr/include/qt5/QtCore/qatomic_power.h \
+		/usr/include/qt5/QtCore/qatomic_alpha.h \
+		/usr/include/qt5/QtCore/qatomic_armv7.h \
+		/usr/include/qt5/QtCore/qatomic_armv6.h \
+		/usr/include/qt5/QtCore/qatomic_armv5.h \
+		/usr/include/qt5/QtCore/qatomic_bfin.h \
+		/usr/include/qt5/QtCore/qatomic_ia64.h \
+		/usr/include/qt5/QtCore/qatomic_mips.h \
+		/usr/include/qt5/QtCore/qatomic_s390.h \
+		/usr/include/qt5/QtCore/qatomic_sh4a.h \
+		/usr/include/qt5/QtCore/qatomic_sparc.h \
+		/usr/include/qt5/QtCore/qatomic_gcc.h \
+		/usr/include/qt5/QtCore/qatomic_x86.h \
+		/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		/usr/include/qt5/QtCore/qatomic_unix.h \
+		/usr/include/qt5/QtCore/qmutex.h \
+		/usr/include/qt5/QtCore/qlogging.h \
+		/usr/include/qt5/QtCore/qflags.h \
+		/usr/include/qt5/QtCore/qtypeinfo.h \
+		/usr/include/qt5/QtCore/qtypetraits.h \
+		/usr/include/qt5/QtCore/qsysinfo.h \
+		/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		/usr/include/qt5/QtCore/qstring.h \
+		/usr/include/qt5/QtCore/qchar.h \
+		/usr/include/qt5/QtCore/qbytearray.h \
+		/usr/include/qt5/QtCore/qrefcount.h \
+		/usr/include/qt5/QtCore/qarraydata.h \
+		/usr/include/qt5/QtCore/qstringbuilder.h \
+		/usr/include/qt5/QtCore/qlist.h \
+		/usr/include/qt5/QtCore/qalgorithms.h \
+		/usr/include/qt5/QtCore/qiterator.h \
+		/usr/include/qt5/QtCore/qcoreevent.h \
+		/usr/include/qt5/QtCore/qscopedpointer.h \
+		/usr/include/qt5/QtCore/qmetatype.h \
+		/usr/include/qt5/QtCore/qvarlengtharray.h \
+		/usr/include/qt5/QtCore/qcontainerfwd.h \
+		/usr/include/qt5/QtCore/qisenum.h \
+		/usr/include/qt5/QtCore/qobject_impl.h \
+		../DEExp/filetime.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../DEExp/filetime.h -o moc_filetime.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -1465,9 +1537,13 @@ writedatadialog.o: ../DEExp/writedatadialog.cpp ../DEExp/writedatadialog.h \
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		/usr/include/qt5/QtCore/qmath.h \
-		../DEExp/helper.h \
 		/usr/include/qt5/QtCore/qdir.h \
-		/usr/include/qt5/QtCore/qfileinfo.h
+		/usr/include/qt5/QtCore/qfileinfo.h \
+		../DEExp/engine.h \
+		/usr/include/qt5/QtCore/QObject \
+		../DEExp/helper.h \
+		/usr/include/qt5/QtCore/qdatetime.h \
+		../DEExp/filetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o writedatadialog.o ../DEExp/writedatadialog.cpp
 
 fileoperationdialog.o: ../DEExp/fileoperationdialog.cpp ../DEExp/fileoperationdialog.h \
@@ -1674,7 +1750,26 @@ helper.o: ../DEExp/helper.cpp ../DEExp/helper.h \
 		/usr/include/qt5/QtCore/qrefcount.h \
 		/usr/include/qt5/QtCore/qnamespace.h \
 		/usr/include/qt5/QtCore/qarraydata.h \
-		/usr/include/qt5/QtCore/qstringbuilder.h
+		/usr/include/qt5/QtCore/qstringbuilder.h \
+		/usr/include/qt5/QtCore/qdatetime.h \
+		/usr/include/qt5/QtCore/qsharedpointer.h \
+		/usr/include/qt5/QtCore/qshareddata.h \
+		/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/include/qt5/QtCore/qobject.h \
+		/usr/include/qt5/QtCore/qobjectdefs.h \
+		/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		/usr/include/qt5/QtCore/qlist.h \
+		/usr/include/qt5/QtCore/qalgorithms.h \
+		/usr/include/qt5/QtCore/qiterator.h \
+		/usr/include/qt5/QtCore/qcoreevent.h \
+		/usr/include/qt5/QtCore/qscopedpointer.h \
+		/usr/include/qt5/QtCore/qmetatype.h \
+		/usr/include/qt5/QtCore/qvarlengtharray.h \
+		/usr/include/qt5/QtCore/qcontainerfwd.h \
+		/usr/include/qt5/QtCore/qisenum.h \
+		/usr/include/qt5/QtCore/qobject_impl.h \
+		/usr/include/qt5/QtCore/qhash.h \
+		/usr/include/qt5/QtCore/qpair.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o helper.o ../DEExp/helper.cpp
 
 engine.o: ../DEExp/engine.cpp ../DEExp/engine.h \
@@ -1734,8 +1829,85 @@ engine.o: ../DEExp/engine.cpp ../DEExp/engine.h \
 		/usr/include/qt5/QtCore/qvarlengtharray.h \
 		/usr/include/qt5/QtCore/qcontainerfwd.h \
 		/usr/include/qt5/QtCore/qisenum.h \
-		/usr/include/qt5/QtCore/qobject_impl.h
+		/usr/include/qt5/QtCore/qobject_impl.h \
+		../DEExp/helper.h \
+		/usr/include/qt5/QtCore/qdatetime.h \
+		/usr/include/qt5/QtCore/qsharedpointer.h \
+		/usr/include/qt5/QtCore/qshareddata.h \
+		/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/include/qt5/QtCore/qhash.h \
+		/usr/include/qt5/QtCore/qpair.h \
+		../DEExp/filetime.h \
+		/usr/include/qt5/QtCore/qdir.h \
+		/usr/include/qt5/QtCore/qfileinfo.h \
+		/usr/include/qt5/QtCore/qfile.h \
+		/usr/include/qt5/QtCore/qfiledevice.h \
+		/usr/include/qt5/QtCore/qiodevice.h \
+		/usr/include/qt5/QtCore/qstringlist.h \
+		/usr/include/qt5/QtCore/qdatastream.h \
+		/usr/include/qt5/QtCore/qregexp.h \
+		/usr/include/qt5/QtCore/qstringmatcher.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o engine.o ../DEExp/engine.cpp
+
+filetime.o: ../DEExp/filetime.cpp ../DEExp/filetime.h \
+		/usr/include/qt5/QtCore/QObject \
+		/usr/include/qt5/QtCore/qobject.h \
+		/usr/include/qt5/QtCore/qobjectdefs.h \
+		/usr/include/qt5/QtCore/qnamespace.h \
+		/usr/include/qt5/QtCore/qglobal.h \
+		/usr/include/qt5/QtCore/qconfig.h \
+		/usr/include/qt5/QtCore/qfeatures.h \
+		/usr/include/qt5/QtCore/qsystemdetection.h \
+		/usr/include/qt5/QtCore/qprocessordetection.h \
+		/usr/include/qt5/QtCore/qcompilerdetection.h \
+		/usr/include/qt5/QtCore/qglobalstatic.h \
+		/usr/include/qt5/QtCore/qatomic.h \
+		/usr/include/qt5/QtCore/qbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		/usr/include/qt5/QtCore/qgenericatomic.h \
+		/usr/include/qt5/QtCore/qatomic_msvc.h \
+		/usr/include/qt5/QtCore/qatomic_integrity.h \
+		/usr/include/qt5/QtCore/qoldbasicatomic.h \
+		/usr/include/qt5/QtCore/qatomic_vxworks.h \
+		/usr/include/qt5/QtCore/qatomic_power.h \
+		/usr/include/qt5/QtCore/qatomic_alpha.h \
+		/usr/include/qt5/QtCore/qatomic_armv7.h \
+		/usr/include/qt5/QtCore/qatomic_armv6.h \
+		/usr/include/qt5/QtCore/qatomic_armv5.h \
+		/usr/include/qt5/QtCore/qatomic_bfin.h \
+		/usr/include/qt5/QtCore/qatomic_ia64.h \
+		/usr/include/qt5/QtCore/qatomic_mips.h \
+		/usr/include/qt5/QtCore/qatomic_s390.h \
+		/usr/include/qt5/QtCore/qatomic_sh4a.h \
+		/usr/include/qt5/QtCore/qatomic_sparc.h \
+		/usr/include/qt5/QtCore/qatomic_gcc.h \
+		/usr/include/qt5/QtCore/qatomic_x86.h \
+		/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		/usr/include/qt5/QtCore/qatomic_unix.h \
+		/usr/include/qt5/QtCore/qmutex.h \
+		/usr/include/qt5/QtCore/qlogging.h \
+		/usr/include/qt5/QtCore/qflags.h \
+		/usr/include/qt5/QtCore/qtypeinfo.h \
+		/usr/include/qt5/QtCore/qtypetraits.h \
+		/usr/include/qt5/QtCore/qsysinfo.h \
+		/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		/usr/include/qt5/QtCore/qstring.h \
+		/usr/include/qt5/QtCore/qchar.h \
+		/usr/include/qt5/QtCore/qbytearray.h \
+		/usr/include/qt5/QtCore/qrefcount.h \
+		/usr/include/qt5/QtCore/qarraydata.h \
+		/usr/include/qt5/QtCore/qstringbuilder.h \
+		/usr/include/qt5/QtCore/qlist.h \
+		/usr/include/qt5/QtCore/qalgorithms.h \
+		/usr/include/qt5/QtCore/qiterator.h \
+		/usr/include/qt5/QtCore/qcoreevent.h \
+		/usr/include/qt5/QtCore/qscopedpointer.h \
+		/usr/include/qt5/QtCore/qmetatype.h \
+		/usr/include/qt5/QtCore/qvarlengtharray.h \
+		/usr/include/qt5/QtCore/qcontainerfwd.h \
+		/usr/include/qt5/QtCore/qisenum.h \
+		/usr/include/qt5/QtCore/qobject_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filetime.o ../DEExp/filetime.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -1751,6 +1923,9 @@ moc_fileoperationdialog.o: moc_fileoperationdialog.cpp
 
 moc_engine.o: moc_engine.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_engine.o moc_engine.cpp
+
+moc_filetime.o: moc_filetime.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_filetime.o moc_filetime.cpp
 
 ####### Install
 

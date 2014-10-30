@@ -7,10 +7,8 @@ Engine* Engine::_instance;
 Engine::Engine(QObject *parent) :
     QObject(parent)
 {
-    this->randomSeed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-    this->defaultDirectory = QDir::homePath().append("/DEExp");
-    this->fileNamePrefix = "file_";
-    this->fileExtension = ".dxt";
+    this->initProperties();
+    this->performInitialProcess();
 }
 
 Engine* Engine::instance()
@@ -23,7 +21,30 @@ Engine* Engine::instance()
     return _instance;
 }
 
-void Engine::writeToFile(QString text, QString fileName)
+void Engine::initProperties()
+{
+    this->randomSeed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+    this->defaultDirectory = QDir::homePath().append("/DEExp/");
+    this->fileNamePrefix = "file_";
+    this->fileExtension = ".dxt";
+}
+
+void Engine::performInitialProcess()
+{
+    this->checkDefaultDirectory();
+}
+
+void Engine::checkDefaultDirectory()
+{
+    QDir dir;
+
+    if(!dir.exists(this->defaultDirectory))
+    {
+        dir.mkdir(this->defaultDirectory);
+    }
+}
+
+FileTime Engine::writeToFile(QString text, QString fileName)
 {
     fileName = this->defaultDirectory + fileName;
 
@@ -34,13 +55,19 @@ void Engine::writeToFile(QString text, QString fileName)
     file.write(text.toStdString().c_str());
 
     file.close();
+
+    FileTime ft;
+
+    ft.fileName = fileName;
+
+    return ft;
 }
 
 QString Engine::generateFileName(QString tag)
 {
     QString dateElement = Helper::ymdhisString(QDateTime::currentDateTime());
 
-    QString fileName = this->fileNamePrefix + "_" + dateElement + "_" + tag + this->fileExtension;
+    QString fileName = this->fileNamePrefix + dateElement + "_" + tag + this->fileExtension;
 
     return fileName;
 }
