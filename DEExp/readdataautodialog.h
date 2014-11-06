@@ -27,6 +27,8 @@ private:
     Engine* engine;
     QStringList fileNames;
     QString serializedFileNames();
+    void performAutoRead();
+    void logTedLn(FileTime ft);
 };
 
 #endif // READDATAAUTODIALOG_H

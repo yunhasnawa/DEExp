@@ -171,6 +171,8 @@ FileTime Engine::readFile(QString fileName)
 
     QFile file(fileName);
 
+    ft.fileName = fileName;
+
     if(file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         // Start counting the time

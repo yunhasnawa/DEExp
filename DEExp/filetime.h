@@ -14,6 +14,7 @@ public:
     double contentGenerationTime;
     QString writeTimeString();
     QString readTimeString();
+    QString msReadTimeString();
     QString contentGenerationTimeString();
     double size();
     QString kbSizeString();

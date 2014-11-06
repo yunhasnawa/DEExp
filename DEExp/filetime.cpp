@@ -23,6 +23,13 @@ QString FileTime::readTimeString()
     return rtString;
 }
 
+QString FileTime::msReadTimeString()
+{
+    QString rtString = QString::number(this->readTime / 1000);
+
+    return rtString;
+}
+
 QString FileTime::contentGenerationTimeString()
 {
     QString cgtString = QString::number(this->contentGenerationTime);
