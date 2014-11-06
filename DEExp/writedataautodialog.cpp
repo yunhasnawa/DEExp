@@ -104,4 +104,15 @@ void WriteDataAutoDialog::on_pbtClear_clicked()
     this->byteSizeList.clear();
 
     this->ui->tedContent->clear();
+
+    QList<double> numList = Helper::generateNumberList(1, 9);
+
+    QString ser1 = Helper::serializeNumberList(numList);
+
+    QList<double> randomList = Helper::randomizeNumberList(numList);
+
+    QString ser2 = Helper::serializeNumberList(randomList);
+
+    this->ui->tedContent->append(ser1);
+    this->ui->tedContent->append(ser2);
 }

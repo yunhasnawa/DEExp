@@ -57,7 +57,9 @@ void WriteDataDialog::on_pbtWriteToDisk_clicked()
 
     QString defaultFileName = Engine::instance()->generateFileName(tag);
 
-    FileTime ft = Engine::instance()->writeToFile(this->generatedContent, defaultFileName);
+    bool random = this->ui->cbxRandom->isChecked();
+
+    FileTime ft = Engine::instance()->writeFile(this->generatedContent, defaultFileName, random);
 
     this->ui->ldtFileName->setText(ft.fileName);
     this->ui->ldtTotalTime->setText(ft.writeTimeString());

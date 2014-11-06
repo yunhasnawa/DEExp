@@ -2,6 +2,12 @@
 #include "qdir.h"
 #include "qdatetime.h"
 
+#include <iostream>
+#include <fstream>
+#include <cstdio>
+
+#include <QtCore>
+
 Engine* Engine::_instance;
 
 Engine::Engine(QObject *parent) :
@@ -188,6 +194,60 @@ FileTime Engine::readFile(QString fileName)
 
         ft.readTime = nanosecs;
     }
+
+    return ft;
+}
+
+FileTime Engine::randomReadFile(QString fileName)
+{
+    FileTime ft;
+
+    return ft;
+}
+
+FileTime Engine::writeFile(QString text, QString fileName, bool randomAccess)
+{
+    fileName = this->defaultDirectory + fileName;
+
+    std::ofstream outfile;
+
+    outfile.open(fileName.toStdString().c_str());
+
+    const char* textChar = text.toStdString().c_str();
+
+    QList<double> indexList = Helper::generateNumberList(0, text.length());
+
+    if(randomAccess)
+    {
+        indexList = Helper::randomizeNumberList(indexList);
+    }
+
+    // Start counting the time
+    QElapsedTimer timer;
+    timer.start();
+
+    // Writes file
+
+    for(int i = 0; i < indexList.length(); i++)
+    {
+        long now = indexList.at(i);
+
+        const char* c = &textChar[now];
+
+        outfile.seekp(now);
+
+        outfile.write(c, 1);
+    }
+
+    outfile.close();
+
+    // Stop the timer
+    qint64 nanosecs = timer.nsecsElapsed();
+
+    FileTime ft;
+
+    ft.fileName = fileName;
+    ft.writeTime = nanosecs;
 
     return ft;
 }

@@ -54,3 +54,49 @@ bool Helper::fileExists(QString fileName)
         return false;
     }
 }
+
+QList<double> Helper::generateNumberList(double from, double to)
+{
+    QList<double> numberList;
+
+    for(int i = from; i <= to; i++)
+    {
+        numberList.append(i);
+    }
+
+    return numberList;
+}
+
+QList<double> Helper::randomizeNumberList(QList<double> numberList)
+{
+    double n = numberList.count();
+
+    QList<double> resultList;
+
+    while (n > 0)
+    {
+        double random = Helper::generateRandomBetween(0, n-1);
+
+        double selectedNumber = numberList.at(random);
+
+        resultList.append(selectedNumber);
+
+        numberList.replace(random, numberList.at(n-1));
+
+        --n;
+    }
+
+    return resultList;
+}
+
+QString Helper::serializeNumberList(QList<double> numberList)
+{
+    QString log = "";
+
+    for(int i = 0; i < numberList.count(); i++)
+    {
+        log += QString::number(numberList.at(i));
+    }
+
+    return log;
+}

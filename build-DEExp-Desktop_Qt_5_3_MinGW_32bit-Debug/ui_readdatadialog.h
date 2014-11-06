@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHeaderView>
@@ -39,6 +40,7 @@ public:
     QLineEdit *ldtTotalTime;
     QLabel *label_4;
     QLabel *label_5;
+    QCheckBox *checkBox;
 
     void setupUi(QDialog *ReadDataDialog)
     {
@@ -73,7 +75,7 @@ public:
         pbtRead->setGeometry(QRect(160, 50, 181, 23));
         label_3 = new QLabel(ReadDataDialog);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(8, 10, 121, 16));
+        label_3->setGeometry(QRect(8, 10, 81, 16));
         ldtFileName = new QLineEdit(ReadDataDialog);
         ldtFileName->setObjectName(QStringLiteral("ldtFileName"));
         ldtFileName->setGeometry(QRect(100, 10, 251, 23));
@@ -86,6 +88,9 @@ public:
         label_5 = new QLabel(ReadDataDialog);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(330, 310, 161, 16));
+        checkBox = new QCheckBox(ReadDataDialog);
+        checkBox->setObjectName(QStringLiteral("checkBox"));
+        checkBox->setGeometry(QRect(10, 50, 101, 17));
 
         retranslateUi(ReadDataDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), ReadDataDialog, SLOT(accept()));
@@ -104,6 +109,7 @@ public:
         label_3->setText(QApplication::translate("ReadDataDialog", "File name", 0));
         label_4->setText(QApplication::translate("ReadDataDialog", "Total Time", 0));
         label_5->setText(QApplication::translate("ReadDataDialog", "Nano seconds", 0));
+        checkBox->setText(QApplication::translate("ReadDataDialog", "Random Access", 0));
     } // retranslateUi
 
 };

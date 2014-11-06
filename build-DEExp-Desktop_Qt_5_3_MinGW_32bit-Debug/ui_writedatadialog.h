@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHeaderView>
@@ -39,6 +40,7 @@ public:
     QLineEdit *ldtByteMainSize;
     QLabel *label_5;
     QLineEdit *ldtTotalTime;
+    QCheckBox *cbxRandom;
 
     void setupUi(QDialog *WriteDataDialog)
     {
@@ -61,7 +63,7 @@ public:
         ldtFileName->setGeometry(QRect(100, 310, 391, 23));
         pbtWriteToDisk = new QPushButton(WriteDataDialog);
         pbtWriteToDisk->setObjectName(QStringLiteral("pbtWriteToDisk"));
-        pbtWriteToDisk->setGeometry(QRect(158, 270, 181, 23));
+        pbtWriteToDisk->setGeometry(QRect(210, 280, 181, 23));
         label_2 = new QLabel(WriteDataDialog);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(288, 10, 21, 16));
@@ -86,6 +88,9 @@ public:
         ldtTotalTime = new QLineEdit(WriteDataDialog);
         ldtTotalTime->setObjectName(QStringLiteral("ldtTotalTime"));
         ldtTotalTime->setGeometry(QRect(100, 340, 221, 23));
+        cbxRandom = new QCheckBox(WriteDataDialog);
+        cbxRandom->setObjectName(QStringLiteral("cbxRandom"));
+        cbxRandom->setGeometry(QRect(100, 280, 101, 17));
 
         retranslateUi(WriteDataDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), WriteDataDialog, SLOT(accept()));
@@ -106,6 +111,7 @@ public:
         label_3->setText(QApplication::translate("WriteDataDialog", "File name", 0));
         ldtByteMainSize->setText(QApplication::translate("WriteDataDialog", "2", 0));
         label_5->setText(QApplication::translate("WriteDataDialog", "Nano seconds", 0));
+        cbxRandom->setText(QApplication::translate("WriteDataDialog", "Random Access", 0));
     } // retranslateUi
 
 };
