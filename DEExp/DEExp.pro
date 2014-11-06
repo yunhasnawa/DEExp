@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     fileoperationdialog.cpp \
     helper.cpp \
     engine.cpp \
-    filetime.cpp
+    filetime.cpp \
+    writedataautodialog.cpp \
+    readdataautodialog.cpp
 
 HEADERS  += mainwindow.h \
     readdatadialog.h \
@@ -27,9 +29,13 @@ HEADERS  += mainwindow.h \
     fileoperationdialog.h \
     helper.h \
     engine.h \
-    filetime.h
+    filetime.h \
+    writedataautodialog.h \
+    readdataautodialog.h
 
 FORMS    += mainwindow.ui \
     readdatadialog.ui \
     writedatadialog.ui \
-    fileoperationdialog.ui
+    fileoperationdialog.ui \
+    writedataautodialog.ui \
+    readdataautodialog.ui

@@ -52,6 +52,22 @@ QString Engine::generateRandomText(double size)
     return text;
 }
 
+QList<QString> Engine::generateMultiRandomText(QList<double> sizes)
+{
+    QList<QString> multiText;
+
+    for(int i = 0; i < sizes.count(); i++)
+    {
+        double size = sizes.at(i);
+
+        QString randomText = Engine::generateRandomText(size);
+
+        multiText.append(randomText);
+    }
+
+    return multiText;
+}
+
 void Engine::checkDefaultDirectory()
 {
     QDir dir;

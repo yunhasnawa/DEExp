@@ -4,6 +4,8 @@
 #include "readdatadialog.h"
 #include "writedatadialog.h"
 #include "fileoperationdialog.h"
+#include "writedataautodialog.h"
+#include "readdataautodialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -39,6 +41,22 @@ void MainWindow::on_actionFile_Operation_triggered()
 
     dlgFileOperation->setWindowTitle("File Operation");
     dlgFileOperation->show();
+}
+
+void MainWindow::on_actionWrite_Data_Auto_triggered()
+{
+    WriteDataAutoDialog* dlgWriteDataAuto = new WriteDataAutoDialog();
+
+    dlgWriteDataAuto->setWindowTitle("Write Data Auto");
+    dlgWriteDataAuto->show();
+}
+
+void MainWindow::on_actionRead_Data_Auto_triggered()
+{
+    ReadDataAutoDialog* dlgReadDataAuto = new ReadDataAutoDialog();
+
+    dlgReadDataAuto->setWindowTitle("Write Data Auto");
+    dlgReadDataAuto->show();
 }
 
 void MainWindow::on_pbWriteData_clicked()

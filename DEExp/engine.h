@@ -17,6 +17,7 @@ public:
     static Engine* instance();
     QString defaultDirectory;
     QString generateRandomText(double size);
+    QList<QString> generateMultiRandomText(QList<double> sizes);
     FileTime writeToFile(QString text, QString fileName);
     QString lookupFile(QWidget* owner);
     QString generateFileName(QString tag);

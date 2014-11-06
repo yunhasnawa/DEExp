@@ -21,7 +21,6 @@ private slots:
     void retrieveDataFromUI();
     void retrieveActualBytesSize();
     void retrieveGeneratedContent();
-
     void on_pbtWriteToDisk_clicked();
 
 private:

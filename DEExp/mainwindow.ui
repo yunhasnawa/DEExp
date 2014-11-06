@@ -128,7 +128,7 @@
       <x>70</x>
       <y>30</y>
       <width>421</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -149,18 +149,26 @@
      <x>0</x>
      <y>0</y>
      <width>571</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
     <property name="title">
-     <string>Menu</string>
+     <string>Single</string>
     </property>
     <addaction name="actionRead_Data"/>
     <addaction name="actionWrite_Data"/>
     <addaction name="actionFile_Operation"/>
    </widget>
+   <widget class="QMenu" name="menuAuto">
+    <property name="title">
+     <string>Auto</string>
+    </property>
+    <addaction name="actionWrite_Data_Auto"/>
+    <addaction name="actionRead_Data_Auto"/>
+   </widget>
    <addaction name="menuMenu"/>
+   <addaction name="menuAuto"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -184,6 +192,16 @@
   <action name="actionFile_Operation">
    <property name="text">
     <string>File Operation</string>
+   </property>
+  </action>
+  <action name="actionWrite_Data_Auto">
+   <property name="text">
+    <string>Write Data</string>
+   </property>
+  </action>
+  <action name="actionRead_Data_Auto">
+   <property name="text">
+    <string>Read Data</string>
    </property>
   </action>
  </widget>

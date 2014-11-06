@@ -22,6 +22,10 @@ private slots:
 
     void on_actionFile_Operation_triggered();
 
+    void on_actionRead_Data_Auto_triggered();
+
+    void on_actionWrite_Data_Auto_triggered();
+
     void on_pbWriteData_clicked();
 
     void on_pbReadData_clicked();
