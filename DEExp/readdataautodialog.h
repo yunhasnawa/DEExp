@@ -2,6 +2,7 @@
 #define READDATAAUTODIALOG_H
 
 #include <QDialog>
+#include "engine.h"
 
 namespace Ui {
 class ReadDataAutoDialog;
@@ -17,11 +18,15 @@ public:
 
 private slots:
     void on_pbtLookup_clicked();
-
     void on_pbtAutoRead_clicked();
+    void initProperties();
+    void retrieveDataFromUI();
 
 private:
     Ui::ReadDataAutoDialog *ui;
+    Engine* engine;
+    QStringList fileNames;
+    QString serializedFileNames();
 };
 
 #endif // READDATAAUTODIALOG_H

@@ -139,6 +139,23 @@ QString Engine::lookupFile(QWidget* owner)
     return fileName;
 }
 
+QStringList Engine::lookupFiles(QWidget* owner)
+{
+    QFileDialog dialog(owner);
+
+    dialog.setDirectory(this->defaultDirectory);
+    dialog.setWindowTitle(tr("Open a Data Engineering File"));
+    dialog.setFileMode(QFileDialog::ExistingFiles);
+    dialog.setNameFilter(tr("Data Engineering Files (*.dxt)"));
+
+    QStringList fileNames;
+
+    if (dialog.exec())
+        fileNames = dialog.selectedFiles();
+
+    return fileNames;
+}
+
 QString Engine::generateFileName(QString tag)
 {
     QString dateElement = Helper::ymdhisString(QDateTime::currentDateTime());

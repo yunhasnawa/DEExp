@@ -20,6 +20,7 @@ public:
     QList<QString> generateMultiRandomText(QList<double> sizes);
     FileTime writeToFile(QString text, QString fileName);
     QString lookupFile(QWidget* owner);
+    QStringList lookupFiles(QWidget* owner);
     QString generateFileName(QString tag);
     FileTime readFile(QString fileName);
 
