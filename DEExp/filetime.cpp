@@ -16,6 +16,13 @@ QString FileTime::writeTimeString()
     return wtString;
 }
 
+QString FileTime::msWriteTimeString()
+{
+    QString wtString = QString::number(this->writeTime / 1000);
+
+    return wtString;
+}
+
 QString FileTime::readTimeString()
 {
     QString rtString = QString::number(this->readTime);

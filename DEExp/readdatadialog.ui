@@ -167,15 +167,15 @@
     </rect>
    </property>
    <property name="text">
-    <string>Nano seconds</string>
+    <string>Microseconds</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="cbxRandom">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>50</y>
-     <width>101</width>
+     <width>141</width>
      <height>17</height>
     </rect>
    </property>

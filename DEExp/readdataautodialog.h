@@ -22,6 +22,8 @@ private slots:
     void initProperties();
     void retrieveDataFromUI();
 
+    void on_pbtClear_clicked();
+
 private:
     Ui::ReadDataAutoDialog *ui;
     Engine* engine;

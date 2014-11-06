@@ -62,5 +62,5 @@ void WriteDataDialog::on_pbtWriteToDisk_clicked()
     FileTime ft = Engine::instance()->writeFile(this->generatedContent, defaultFileName, random);
 
     this->ui->ldtFileName->setText(ft.fileName);
-    this->ui->ldtTotalTime->setText(ft.writeTimeString());
+    this->ui->ldtTotalTime->setText(ft.msWriteTimeString());
 }

@@ -59,7 +59,7 @@ void WriteDataAutoDialog::generateContentList()
 
         this->contentList.append(ft.fileContent);
 
-        QString log = "Content created -> " + ft.kbSizeString() + " kB in: " + ft.msContentGenerationString() + " micro seconds";
+        QString log = "Content created -> " + ft.kbSizeString() + " kB in: " + ft.msContentGenerationString() + " Microseconds";
 
         this->logTedLn(log);
     }
@@ -93,7 +93,7 @@ void WriteDataAutoDialog::logTedLn(FileTime ft)
     QString fileName = ft.fileName;
     QString totalTime = QString::number(ft.writeTime / 1000);
 
-    QString text = fileName + " -> " + totalTime + " micro seconds";
+    QString text = fileName + " -> " + totalTime + " Microseconds";
 
     this->ui->tedContent->append(text);
 }
@@ -104,15 +104,4 @@ void WriteDataAutoDialog::on_pbtClear_clicked()
     this->byteSizeList.clear();
 
     this->ui->tedContent->clear();
-
-    QList<double> numList = Helper::generateNumberList(1, 9);
-
-    QString ser1 = Helper::serializeNumberList(numList);
-
-    QList<double> randomList = Helper::randomizeNumberList(numList);
-
-    QString ser2 = Helper::serializeNumberList(randomList);
-
-    this->ui->tedContent->append(ser1);
-    this->ui->tedContent->append(ser2);
 }

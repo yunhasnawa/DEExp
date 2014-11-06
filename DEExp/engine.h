@@ -23,7 +23,7 @@ public:
     QStringList lookupFiles(QWidget* owner);
     QString generateFileName(QString tag);
     FileTime readFile(QString fileName);
-    FileTime randomReadFile(QString fileName, bool randomAccess);
+    FileTime readFile(QString fileName, bool randomAccess);
     FileTime writeFile(QString text, QString fileName, bool randomAccess);
 
     // Properties

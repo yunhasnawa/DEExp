@@ -38,10 +38,12 @@ void ReadDataDialog::on_pbtLookup_clicked()
 
 void ReadDataDialog::on_pbtRead_clicked()
 {
-    FileTime ft = Engine::instance()->randomReadFile(this->fileName, false);
+    bool random = this->ui->cbxRandom->isChecked();
+
+    FileTime ft = Engine::instance()->readFile(this->fileName, random);
 
     this->fileContent = ft.fileContent;
-    this->totalTime = ft.readTime;
+    this->totalTime = ft.readTime / 1000;
     this->dataSize = this->fileContent.length();
 
     this->mainDataSize = 2;

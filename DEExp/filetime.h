@@ -13,6 +13,7 @@ public:
     double readTime;
     double contentGenerationTime;
     QString writeTimeString();
+    QString msWriteTimeString();
     QString readTimeString();
     QString msReadTimeString();
     QString contentGenerationTimeString();

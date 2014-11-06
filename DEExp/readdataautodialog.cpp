@@ -76,3 +76,10 @@ void ReadDataAutoDialog::logTedLn(FileTime ft)
 
     this->ui->tedContent->append(log);
 }
+
+void ReadDataAutoDialog::on_pbtClear_clicked()
+{
+    this->fileNames.clear();
+
+    this->ui->tedContent->clear();
+}
