@@ -20,17 +20,19 @@ private slots:
     void on_pbtAutoWrite_clicked();
     void initProperties();
     void retrieveDataFromUI();
-    void retrieveByteSizes();
+    void retrieveByteSizeList();
+    void generateContentList();
     void performAutoWrite();
+    void logTedLn(QString text);
+    void logTedLn(FileTime ft);
 
 private:
     Ui::WriteDataAutoDialog *ui;
-    qint32 mainSizeFrom;
-    qint32 powerSizeFrom;
-    qint32 mainSizeTo;
-    qint32 powerSizeTo;
-    qint32 byteSizeFrom;
-    qint32 byteSizeTo;
+    double mainSize;
+    double powerSizeFrom;
+    double powerSizeTo;
+    QList<double> byteSizeList;
+    QList<QString> contentList;
     Engine* engine;
 };
 

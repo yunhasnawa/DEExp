@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WriteDataAutoDialog_t {
-    QByteArrayData data[7];
-    char stringdata[114];
+    QByteArrayData data[12];
+    char stringdata[163];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,12 +34,19 @@ QT_MOC_LITERAL(1, 20, 23),
 QT_MOC_LITERAL(2, 44, 0),
 QT_MOC_LITERAL(3, 45, 14),
 QT_MOC_LITERAL(4, 60, 18),
-QT_MOC_LITERAL(5, 79, 17),
-QT_MOC_LITERAL(6, 97, 16)
+QT_MOC_LITERAL(5, 79, 20),
+QT_MOC_LITERAL(6, 100, 19),
+QT_MOC_LITERAL(7, 120, 16),
+QT_MOC_LITERAL(8, 137, 8),
+QT_MOC_LITERAL(9, 146, 4),
+QT_MOC_LITERAL(10, 151, 8),
+QT_MOC_LITERAL(11, 160, 2)
     },
     "WriteDataAutoDialog\0on_pbtAutoWrite_clicked\0"
     "\0initProperties\0retrieveDataFromUI\0"
-    "retrieveByteSizes\0performAutoWrite"
+    "retrieveByteSizeList\0generateContentList\0"
+    "performAutoWrite\0logTedLn\0text\0FileTime\0"
+    "ft"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +56,7 @@ static const uint qt_meta_data_WriteDataAutoDialog[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,11 +64,14 @@ static const uint qt_meta_data_WriteDataAutoDialog[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   39,    2, 0x08 /* Private */,
-       3,    0,   40,    2, 0x08 /* Private */,
-       4,    0,   41,    2, 0x08 /* Private */,
-       5,    0,   42,    2, 0x08 /* Private */,
-       6,    0,   43,    2, 0x08 /* Private */,
+       1,    0,   54,    2, 0x08 /* Private */,
+       3,    0,   55,    2, 0x08 /* Private */,
+       4,    0,   56,    2, 0x08 /* Private */,
+       5,    0,   57,    2, 0x08 /* Private */,
+       6,    0,   58,    2, 0x08 /* Private */,
+       7,    0,   59,    2, 0x08 /* Private */,
+       8,    1,   60,    2, 0x08 /* Private */,
+       8,    1,   63,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -69,6 +79,9 @@ static const uint qt_meta_data_WriteDataAutoDialog[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    9,
+    QMetaType::Void, 0x80000000 | 10,   11,
 
        0        // eod
 };
@@ -81,12 +94,14 @@ void WriteDataAutoDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         case 0: _t->on_pbtAutoWrite_clicked(); break;
         case 1: _t->initProperties(); break;
         case 2: _t->retrieveDataFromUI(); break;
-        case 3: _t->retrieveByteSizes(); break;
-        case 4: _t->performAutoWrite(); break;
+        case 3: _t->retrieveByteSizeList(); break;
+        case 4: _t->generateContentList(); break;
+        case 5: _t->performAutoWrite(); break;
+        case 6: _t->logTedLn((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 7: _t->logTedLn((*reinterpret_cast< FileTime(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject WriteDataAutoDialog::staticMetaObject = {
@@ -114,13 +129,13 @@ int WriteDataAutoDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 8;
     }
     return _id;
 }
