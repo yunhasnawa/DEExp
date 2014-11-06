@@ -198,9 +198,78 @@ FileTime Engine::readFile(QString fileName)
     return ft;
 }
 
-FileTime Engine::randomReadFile(QString fileName)
+FileTime Engine::randomReadFile(QString fileName, bool randomAccess)
 {
     FileTime ft;
+
+    std::ifstream is (fileName.toStdString().c_str(), std::ifstream::binary);
+
+    QString content = "";
+
+    if(is)
+    {
+        is.seekg(0, is.end);
+        double size = is.tellg();
+
+        qDebug() << QString::number(size);
+
+        QList<double> indexes = Helper::generateNumberList(0, size - 1);
+
+        if(randomAccess)
+        {
+            indexes = Helper::randomizeNumberList(indexes);
+        }
+
+        for(int i = 0; i < indexes.count(); i++)
+        {
+            double now = indexes.at(i);
+
+            is.seekg (now, is.beg);
+
+            qDebug() << now;
+
+            char* bitBuffer = new char[2];
+
+            is.read(bitBuffer, 1);
+
+            //qDebug() << bitBuffer;
+
+            content += bitBuffer;
+
+            std::cout.write(bitBuffer, 1);
+
+            delete[] bitBuffer;
+
+            //qDebug() << "tes";
+        }
+
+        is.close();
+    }
+    /*
+    if (is)
+    {
+        // get length of file:
+        is.seekg (0, is.end);
+        int length = is.tellg();
+        is.seekg (0, is.beg);
+
+        // allocate memory:
+        char * buffer = new char [length];
+
+        // read data as a block:
+        is.read (buffer,length);
+
+        is.close();
+
+        // print content:
+        std::cout.write (buffer,length);
+
+        delete[] buffer;
+      }
+
+      return 0;
+    */
+    ft.fileContent = content;
 
     return ft;
 }
@@ -228,7 +297,7 @@ FileTime Engine::writeFile(QString text, QString fileName, bool randomAccess)
 
     // Writes file
 
-    for(int i = 0; i < indexList.length(); i++)
+    for(int i = 0; i < indexList.count(); i++)
     {
         long now = indexList.at(i);
 

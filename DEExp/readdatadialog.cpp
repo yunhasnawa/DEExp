@@ -38,7 +38,7 @@ void ReadDataDialog::on_pbtLookup_clicked()
 
 void ReadDataDialog::on_pbtRead_clicked()
 {
-    FileTime ft = Engine::instance()->readFile(this->fileName);
+    FileTime ft = Engine::instance()->randomReadFile(this->fileName, false);
 
     this->fileContent = ft.fileContent;
     this->totalTime = ft.readTime;
