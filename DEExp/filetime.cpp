@@ -6,6 +6,7 @@ FileTime::FileTime()
     this->fileContent = "";
     this->writeTime = 0;
     this->readTime = 0;
+    this->contentGenerationTime = 0;
 }
 
 QString FileTime::writeTimeString()
@@ -14,3 +15,33 @@ QString FileTime::writeTimeString()
 
     return wtString;
 }
+
+QString FileTime::readTimeString()
+{
+    QString rtString = QString::number(this->readTime);
+
+    return rtString;
+}
+
+QString FileTime::contentGenerationTimeString()
+{
+    QString cgtString = QString::number(this->contentGenerationTime);
+
+    return cgtString;
+}
+
+double FileTime::size()
+{
+    return this->fileContent.length();
+}
+
+QString FileTime::kbSizeString()
+{
+    return QString::number(this->size() / 1000);
+}
+
+QString FileTime::msContentGenerationString()
+{
+    return QString::number(this->contentGenerationTime / 1000);
+}
+

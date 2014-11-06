@@ -52,6 +52,26 @@ QString Engine::generateRandomText(double size)
     return text;
 }
 
+FileTime Engine::ftGenerateRandomText(double size)
+{
+    // Start counting the time
+    QElapsedTimer timer;
+    timer.start();
+
+    // Generate random text
+    QString randomText = Engine::generateRandomText(size);
+
+    // Stop the timer
+    qint64 nanosecs = timer.nsecsElapsed();
+
+    FileTime ft;
+
+    ft.fileContent = randomText;
+    ft.contentGenerationTime = nanosecs;
+
+    return ft;
+}
+
 QList<QString> Engine::generateMultiRandomText(QList<double> sizes)
 {
     QList<QString> multiText;

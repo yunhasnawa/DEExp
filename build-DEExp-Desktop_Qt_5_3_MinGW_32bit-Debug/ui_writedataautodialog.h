@@ -37,6 +37,7 @@ public:
     QLabel *label_5;
     QTextEdit *tedContent;
     QLineEdit *ldtByteMainSize;
+    QPushButton *pbtClear;
 
     void setupUi(QDialog *WriteDataAutoDialog)
     {
@@ -45,7 +46,7 @@ public:
         WriteDataAutoDialog->resize(500, 430);
         buttonBox = new QDialogButtonBox(WriteDataAutoDialog);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(10, 390, 481, 32));
+        buttonBox->setGeometry(QRect(110, 390, 381, 32));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         label = new QLabel(WriteDataAutoDialog);
@@ -78,6 +79,9 @@ public:
         ldtByteMainSize = new QLineEdit(WriteDataAutoDialog);
         ldtByteMainSize->setObjectName(QStringLiteral("ldtByteMainSize"));
         ldtByteMainSize->setGeometry(QRect(160, 10, 113, 51));
+        pbtClear = new QPushButton(WriteDataAutoDialog);
+        pbtClear->setObjectName(QStringLiteral("pbtClear"));
+        pbtClear->setGeometry(QRect(10, 390, 75, 31));
 
         retranslateUi(WriteDataAutoDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), WriteDataAutoDialog, SLOT(accept()));
@@ -98,6 +102,7 @@ public:
         label_4->setText(QApplication::translate("WriteDataAutoDialog", "^", 0));
         label_5->setText(QApplication::translate("WriteDataAutoDialog", "To:", 0));
         ldtByteMainSize->setText(QApplication::translate("WriteDataAutoDialog", "2", 0));
+        pbtClear->setText(QApplication::translate("WriteDataAutoDialog", "Clear", 0));
     } // retranslateUi
 
 };

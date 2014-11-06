@@ -15,19 +15,24 @@ class Engine : public QObject
 public:
     explicit Engine(QObject *parent = 0);
     static Engine* instance();
-    QString defaultDirectory;
     QString generateRandomText(double size);
+    FileTime ftGenerateRandomText(double size);
     QList<QString> generateMultiRandomText(QList<double> sizes);
     FileTime writeToFile(QString text, QString fileName);
     QString lookupFile(QWidget* owner);
     QString generateFileName(QString tag);
     FileTime readFile(QString fileName);
+
+    // Properties
+    QString defaultDirectory;
     QString randomSeed;
 
 private:
     void performInitialProcess();
     void initProperties();
     void checkDefaultDirectory();
+
+    // Properties
     static Engine* _instance;
     QString fileNamePrefix;
     QString fileExtension;

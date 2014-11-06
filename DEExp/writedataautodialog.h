@@ -26,6 +26,8 @@ private slots:
     void logTedLn(QString text);
     void logTedLn(FileTime ft);
 
+    void on_pbtClear_clicked();
+
 private:
     Ui::WriteDataAutoDialog *ui;
     double mainSize;

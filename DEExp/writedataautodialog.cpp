@@ -49,13 +49,26 @@ void WriteDataAutoDialog::retrieveByteSizeList()
 
 void WriteDataAutoDialog::generateContentList()
 {
-    this->logTedLn("Generating file contents. Please wait...");
+    this->logTedLn("<br/><b>Generating file contents. Please wait...</b>");
 
-    this->contentList = this->engine->generateMultiRandomText(this->byteSizeList);
+    for(int i = 0; i < this->byteSizeList.count(); i++)
+    {
+        double size = this->byteSizeList.at(i);
+
+        FileTime ft = this->engine->ftGenerateRandomText(size);
+
+        this->contentList.append(ft.fileContent);
+
+        QString log = "Content created -> " + ft.kbSizeString() + " kB in: " + ft.msContentGenerationString() + " micro seconds";
+
+        this->logTedLn(log);
+    }
 }
 
 void WriteDataAutoDialog::performAutoWrite()
 {
+    this->logTedLn("<br/><b>Writing to disk...</b>");
+
     for(int i = 0; i < this->contentList.count(); i++)
     {
         QString tag = QString::number(i);
@@ -83,4 +96,12 @@ void WriteDataAutoDialog::logTedLn(FileTime ft)
     QString text = fileName + " -> " + totalTime + " micro seconds";
 
     this->ui->tedContent->append(text);
+}
+
+void WriteDataAutoDialog::on_pbtClear_clicked()
+{
+    this->contentList.clear();
+    this->byteSizeList.clear();
+
+    this->ui->tedContent->clear();
 }

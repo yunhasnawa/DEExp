@@ -11,7 +11,13 @@ public:
     double writeTime;
     QString fileContent;
     double readTime;
+    double contentGenerationTime;
     QString writeTimeString();
+    QString readTimeString();
+    QString contentGenerationTimeString();
+    double size();
+    QString kbSizeString();
+    QString msContentGenerationString();
 };
 
 #endif // FILETIME_H
